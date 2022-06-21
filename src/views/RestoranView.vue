@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h2 style="text-align:center">Employee Profile</h2>
+    <h2 style="text-align:center">Ponuda restorana</h2>
     <div class="card">
         <img alt="User" src="../assets/user.png"/>
         <h1> {{ employee.firstName }} </h1>

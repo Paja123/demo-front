@@ -1,5 +1,5 @@
 <template>
-  <div id="allEmployees">
+  <div id="allRestorani">
     <h1>Restorani</h1>
     <!-- <button v-on:click="addEmployee">Add new employee</button> -->
     <!-- <br /><br /> -->
@@ -9,21 +9,20 @@
           <th>Naziv</th>
           <th>Tip</th>
           <th>Adresa</th>
-          <!-- <th>About</th>
-          <th>Delete</th>
+          <th></th>
+          <!--<th>Delete</th>
           <th>Edit</th> -->
         </tr>
         <tr v-for="restoran in restorani" :key="restoran.id">
           <td>{{ restoran.naziv }}</td>
           <td>{{ restoran.tip }}</td>
           <td>{{ restoran.adresa }}</td>
-          <!--<td>
-            
-            <button class="btnSeeMore" v-on:click="seeMore(employee)">
+          <td>
+            <button class="btnSeeMore" v-on:click="naruci(restoran)">
               See more
             </button>
           </td>
-          <td>
+         <!-- <td>
             <button class="delete" v-on:click="deleteEmployee(employee.id)">
               Delete
             </button>
@@ -75,9 +74,9 @@ export default {
     // addEmployee: function() {
     //   this.$router.push("/add-employee");
     // },
-    // seeMore: function (employee) {
-    //   this.$router.push("/employee?id=" + employee.id);
-    // },
+     seeMore: function (restoran) {
+       this.$router.push("/restoran?id=" + restoran.id);
+     },
     // deleteEmployee: function (id) {
     //   fetch("http://localhost:8081/api/employees/" + id, {
     //     method: "DELETE",
@@ -90,8 +89,8 @@ export default {
     // editEmployee: function(employee) {
     //  // this.$router.push("/edit-employee/" + employee.id);
     //   this.$router.push("/edit-employee?id=" + employee.id);
-    // },
-  },
+     },
+  
 };
 </script>
 
@@ -104,7 +103,7 @@ h3 {
   color: #4caf50;
 }
 
-.container-employees {
+.container-restorani {
   display: flex;
   justify-content: center;
 }

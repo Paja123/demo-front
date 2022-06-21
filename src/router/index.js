@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import RestoraniView from '../views/RestoraniView.vue'
-// import EmployeeView from '../views/EmployeeView.vue'
+ import RestoranView from '../views/RestoranView.vue'
 // import AddEmployeeView from '../views/AddEmployeeView.vue'
 // import EditEmployeeView from '../views/EditEmployeeView.vue'
 
