@@ -16,11 +16,11 @@ const routes = [
     name: 'restorani',
     component: RestoraniView
   },
-  // {
-  //   path: '/employee',
-  //   name: 'employee',
-  //   component: EmployeeView
-  // },
+  {
+    path: '/restoran',
+    name: 'restoran',
+    component: RestoranView
+  },
   // {
   //   path: '/add-employee',
   //   name: 'add-employee',

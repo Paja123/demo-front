@@ -74,8 +74,8 @@ export default {
     // addEmployee: function() {
     //   this.$router.push("/add-employee");
     // },
-     seeMore: function (restoran) {
-       this.$router.push("/restoran?id=" + restoran.id);
+     naruci: function (restoran) {
+       this.$router.push("/restoran?naziv=" + restoran.naziv);
      },
     // deleteEmployee: function (id) {
     //   fetch("http://localhost:8081/api/employees/" + id, {

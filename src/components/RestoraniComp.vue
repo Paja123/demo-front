@@ -3,10 +3,10 @@
     <td>{{ restoran.naziv }}</td>
     <td>{{ restoran.tip }}</td>
     <td>{{ restoran.adresa }}</td>
-  <!--  <td>
-      <button class="btnSeeMore" v-on:click="seeMore">Naruci</button>
+    <td>
+      <button class="btnSeeMore" v-on:click="naruci">Naruci</button>
     </td>
-     <td>
+  <!--   <td>
       <button class="delete" v-on:click="deleteEmployee">
         Delete
       </button>
@@ -24,9 +24,9 @@ export default {
   name: "RestoranComp",
   props: ["restoran"],
   methods: {
-    // seeMore: function () {
-    //   this.$router.push("/employee?id=" + this.employee.id);
-    // },
+    naruci: function () {
+      this.$router.push("/restoran?id=" + this.restoran.naziv);
+    },
     // deleteEmployee: function() {
     //   fetch("http://localhost:8081/api/employees/" + this.employee.id, {
     //     method: "DELETE",

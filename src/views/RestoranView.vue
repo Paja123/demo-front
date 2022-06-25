@@ -1,22 +1,28 @@
 <template>
-<div>
-    <h2 style="text-align:center">Ponuda restorana</h2>
-    <div class="card">
-        <img alt="User" src="../assets/user.png"/>
-        <h1> {{ employee.firstName }} </h1>
-        <h1> {{ employee.lastName }} </h1>
-        <p class="title">{{employee.position}}</p>
-        <br>
-    </div>
-</div>
+  <div>
+    <h1>{{restoran.naziv}}</h1>
+    <h2>{{restoran.tip}}</h2>
+    <!-- <h2 >{{restoran.adresa}}</h2> -->
+    <h2>Prosecna ocena: {{restoran.prosecnaOcena}}</h2>
+    <h2>komentari</h2>
+    <div v-for="komentar in restoran.komentari" >
+        {{komentar.tekst}}
+    </div> 
+  </div>
 </template>
 <script>
+//import ProductCard from '@/components/ProductCard.vue'
+
 //import axios from "axios";
 export default {
-    name: 'EmployeeView',
+    name: 'RestoranView',
+    // props: ['inventory', 'addToCart'],
+  // components: {
+  //   ProductCard
+  // },
     data: function() {
         return {
-            employee: {},
+            restoran: {},
         }
     },
     mounted: function() {
@@ -29,9 +35,9 @@ export default {
                 console.log(err)
             })*/
 
-        fetch('http://localhost:8081/api/employees/' + this.$route.query.id)
+        fetch('http://localhost:8081/api/restorani/' + this.$route.query.naziv)
             .then(response => response.json())
-            .then(data => {console.log("Success:", data); this.employee = data})
+            .then(data => {console.log("Success:", data); this.restoran = data; })
             .catch((error) => {
                 console.error("Error:", error);
             });

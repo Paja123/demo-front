@@ -5,7 +5,10 @@
   </nav>-->
   <router-view/>
 </template>
+<script>
+// import Sidebar from '@/components/Sidebar.vue'
 
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
