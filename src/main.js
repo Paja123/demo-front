@@ -18,6 +18,11 @@ import 'materialize-css/dist/css/materialize.min.css'
 // /* add icons to the library */
 // library.add(laptop)
 
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
+  });
+
 
 
 createApp(App)

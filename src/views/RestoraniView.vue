@@ -62,7 +62,9 @@ export default {
         console.log(err)
       })*/
 
-      fetch('http://localhost:8081/api/restorani')
+      fetch('http://localhost:8081/api/restorani' ,{
+          credentials:'include'
+      })
         .then(response => response.json())
         .then(data => {console.log("Success:", data); this.restorani = data})
         .catch((error) => {

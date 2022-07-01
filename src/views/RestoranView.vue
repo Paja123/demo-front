@@ -1,4 +1,5 @@
 <template>
+  <Navbar />
   <div>
     <h1>{{restoran.naziv}}</h1>
     <h2>{{restoran.tip}}</h2>
@@ -25,7 +26,11 @@
           <p>{{artikal.opis}}</p>
         </div>
         <div class="card-action">
-            <button class="waves-effect waves-light btn-large">Dodaj u korpu</button>
+            <button @click="dodajUKorpu" v-bind="korpaDto.artikal" class="waves-effect waves-light btn-large">Dodaj u korpu</button>
+        </div>
+        <div>
+            <button><a @click="toggleSidebar" data-target="slide-out" class="sidenav-trigger">menu</a></button>      
+
         </div>
       </div>
     </div>
@@ -33,26 +38,33 @@
   </section>
 
   
-  <!-- <ul id="slide-out" class="sidenav">
-    <li><div class="user-view">
-      <div class="background">
-        <img src="images/office.jpg">
-      </div>
-      <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-      <a href="#name"><span class="white-text name">John Doe</span></a>
-      <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-    </div></li>
-    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-    <li><a href="#!">Second Link</a></li>
+    <ul v-if="showSidebar" id="slide-out" class="sidenav sidenav-fixed">
+    <!-- <li><i class="materialize-icons">exit_to_app</i></li> -->
+    <li style="float: right"><a @click="toggleSidebar" >Zatvori</a></li>
+    <!-- <li><a href="#!">Second Link</a></li>
     <li><div class="divider"></div></li>
     <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li> -->
+    <table>
+      <thead>
+        <tr>
+          <th>Proizvod</th>
+          <th>Cena</th>
+          <th>Kol.</th>
+          <th>Ukupno</th>
+          <th><span class="sr-only">Actions</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr></tr>
+      </tbody>
+    </table>
   </ul>
-  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-         -->
+  
+        
 </template>
 <script>
-//import ProductCard from '@/components/ProductCard.vue'
+import Navbar from '@/components/Navbar.vue'
 import M from 'materialize-css'
 //import axios from "axios";
 export default {
@@ -63,7 +75,12 @@ export default {
   // },
     data: function() {
         return {
+            showSidebar: false,
             restoran: {},
+            korpaDto: {
+              artikal:{},
+              kolicina: 10
+            }
         }
       },
     mounted: function() {
@@ -75,13 +92,38 @@ export default {
             .catch((err) => {
                 console.log(err)
             })*/
-
         fetch('http://localhost:8081/api/restorani/' + this.$route.query.naziv)
             .then(response => response.json())
             .then(data => {console.log("Success:", data); this.restoran = data; })
             .catch((error) => {
                 console.error("Error:", error);
             });
+    },
+    methods:{
+      toggleSidebar(){
+        this.showSidebar = !this.showSidebar
+      },
+      dodajUKorpu(){
+           fetch('http://localhost:8081/api/dodaj-u-korpu', {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(this.artikal),
+      })
+        
+        .then((response) => response.json)
+        .then((data) => {
+          console.log("Success : " + data);
+          console.log("Success : " + this.korpaDto);
+        })
+        .catch((error) => {
+                console.error("Error:", error);
+            });
+    
+  
+      }
     }
 }
 </script>
