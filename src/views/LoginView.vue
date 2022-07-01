@@ -56,7 +56,7 @@
           <input type="password" v-model="korisnik.lozinka" placeholder="Lozinka" />
           <button @click="login">Login</button>
           <p>
-            <!-- <router-link to="/registracija">Registracija</router-link> -->
+            <router-link to="/registracija"> Nemate profil? Registrujte se!</router-link>
           </p>
        </div>
 </template>

@@ -3,7 +3,8 @@ import HomeView from '../views/HomeView.vue'
 import RestoraniView from '../views/RestoraniView.vue'
  import RestoranView from '../views/RestoranView.vue'
  import LoginView from '../views/LoginView.vue'
-// import AddEmployeeView from '../views/AddEmployeeView.vue'
+ import RegistrationView from '../views/RegistrationView.vue'
+ // import AddEmployeeView from '../views/AddEmployeeView.vue'
 // import EditEmployeeView from '../views/EditEmployeeView.vue'
 
 const routes = [
@@ -26,6 +27,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: LoginView
+  },
+  {
+    path: '/registracija',
+    name: 'registracija',
+    component: RegistrationView
   }
 
   // {
