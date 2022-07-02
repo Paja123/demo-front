@@ -45,12 +45,12 @@ export default{
     data: function () {
     return {
         korisnik: {
-          korisnickoIme: "",
-          pol: "muski",
-          lozinka: "",
-          ime:"",
-          prezime:"",
-          datumRodjenja: "",
+            korisnickoIme: "",
+            pol: "muski",
+            lozinka: "",
+            ime:"",
+            prezime:"",
+            datumRodjenja: "",
        },
     };
    
@@ -93,7 +93,7 @@ export default{
                     .then((response) => response.json)
                     // .then(if(data))
                     .then((data) => {
-                    console.log("Success : " + data);
+                    console.log("Success");
                     // if (data =="korisnicko ime nije slobodno"){
                     //     alert("korisnicko ime nije slobodno!")
                     // }

@@ -96,27 +96,19 @@ export default{
         body: JSON.stringify(this.korisnik),
     
       })
-        .then((res) => res.json)
+        .then((res) => res.json())
         .then((data) => {
           console.log("Success : " + data);
-          //this.korisnik = data;
-          
-          // console.log(JSON.stringify(res.data.korisnik));
-           console.log(this.korisnik.korisnickoIme)
-           console.log(this.korisnik.uloga)
+          this.korisnik = data;
            console.log(this.korisnik);
-          
-
-          console.log(this.korisnik);
-          // .then((data) => this.korisnik = data)
-          //this.$router.push("/restorani");
+              
         })
         .catch((err) => {
           console.log("Error : " + err);
           alert(err);
         });
          if(this.korisnik.uloga == "Kupac"){
-            this.$router.push("/restorani");
+            //this.$router.push("/restorani");
 
          }
       
