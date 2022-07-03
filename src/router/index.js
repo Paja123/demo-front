@@ -4,6 +4,8 @@ import RestoraniView from '../views/RestoraniView.vue'
  import RestoranView from '../views/RestoranView.vue'
  import LoginView from '../views/LoginView.vue'
  import RegistrationView from '../views/RegistrationView.vue'
+ import OrderHistoryView from '../views/OrderHistoryView.vue'
+ 
  // import AddEmployeeView from '../views/AddEmployeeView.vue'
 // import EditEmployeeView from '../views/EditEmployeeView.vue'
 
@@ -32,7 +34,12 @@ const routes = [
     path: '/registracija',
     name: 'registracija',
     component: RegistrationView
-  }
+  },
+  {
+    path: '/istorija-porudzbina',
+    name: 'istorija-porudzbina',
+    component: OrderHistoryView
+  },
 
   // {
   //   path: '/add-employee',

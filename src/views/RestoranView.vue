@@ -64,9 +64,9 @@
         
 </template>
 <script>
-import Navbar from '@/components/Navbar.vue'
+
 import M from 'materialize-css'
-//import axios from "axios";
+import NavBar from "@/components/Navbar.vue" ;
 export default {
     name: 'RestoranView',
     // props: ['inventory', 'addToCart'],
@@ -83,6 +83,7 @@ export default {
             }
         }
       },
+      components:{NavBar},
     mounted: function() {
         /*axios
             .get("http://localhost:8081/api/employees/" + this.$route.query.id)

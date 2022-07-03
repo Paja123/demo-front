@@ -62,6 +62,7 @@
 </template>
 
 <script>
+
 export default{
      name: "LoginView",
   data: function () {
@@ -75,6 +76,7 @@ export default{
           pol:"",
           uloga: "",
        },
+          sessionId:""
     };
    
 
@@ -100,17 +102,25 @@ export default{
         .then((data) => {
           console.log("Success : " + data);
           this.korisnik = data;
+          this.sessionId = data.sessionId
+         // this.$cookie.set('token',this.sessionId)
            console.log(this.korisnik);
+           if(this.korisnik.uloga == "Kupac"){
+            this.$router.push("/restorani");
+            //POtrebna su 2 klika iz nekog razloga
+         }
+
+            // console.log(this.$cookies);
+            // this.$cookies.set('test1', this.sessionId);
+            //  console.log(this.$cookies.keys());
+            //   console.log(this.$cookies.get('test1'));
               
         })
         .catch((err) => {
           console.log("Error : " + err);
           alert(err);
         });
-         if(this.korisnik.uloga == "Kupac"){
-            //this.$router.push("/restorani");
-
-         }
+         
       
     
     }

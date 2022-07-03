@@ -1,4 +1,5 @@
 <template>
+<NavBar />
   <div id="allRestorani">
     <h1>Restorani</h1>
     <!-- <button v-on:click="addEmployee">Add new employee</button> -->
@@ -22,29 +23,19 @@
               See more
             </button>
           </td>
-         <!-- <td>
-            <button class="delete" v-on:click="deleteEmployee(employee.id)">
-              Delete
-            </button>
-          </td>
-       --> </tr>
-        <!-- <restorani-comp
-          v-for="restoran in restorani"
-          :key="restoran.id"
-          :restoran="restoran"
-        >
-        </restorani-comp> -->
+         </tr>
+      
       </table>
     </div>
   </div>
 </template>
 
 <script>
-//import axios from "axios";
+import NavBar from "@/components/Navbar.vue" ;
 import RestoraniComp from "../components/RestoraniComp.vue";
 export default {
   name: "RestoraniComp",
-  components: { RestoraniComp },
+  components: { RestoraniComp, NavBar },
   data: function () {
     return {
       restorani: [],
@@ -73,25 +64,10 @@ export default {
         ;
   },
   methods: {
-    // addEmployee: function() {
-    //   this.$router.push("/add-employee");
-    // },
      naruci: function (restoran) {
        this.$router.push("/restoran?naziv=" + restoran.naziv);
-     },
-    // deleteEmployee: function (id) {
-    //   fetch("http://localhost:8081/api/employees/" + id, {
-    //     method: "DELETE",
-    //   }).then((res) => {
-    //     if (res.ok) {
-    //       window.location.reload();
-    //     }
-    //   });
-    // },
-    // editEmployee: function(employee) {
-    //  // this.$router.push("/edit-employee/" + employee.id);
-    //   this.$router.push("/edit-employee?id=" + employee.id);
-     },
+    },
+  },
   
 };
 </script>
