@@ -1,6 +1,6 @@
 <template>
-      <h1>Registracija</h1>
-       <div class="login">
+    
+     <div >
         <label>Korisnicko ime</label>
             <input type="text" v-model="korisnik.korisnickoIme" placeholder="Korisnicko ime" id="korisnicko-ime" />
             <label>Lozinka</label>
@@ -30,6 +30,21 @@
             </label>
             </p>
             </form>
+
+            <form action="#" >
+            <p>
+            <label>
+                <input  type="radio" v-model="korisnik.uloga" value="Menadzer"  checked />
+                <span>Menadzer</span>
+            </label>
+            </p>
+            <p>
+            <label>
+                <input  type="radio" v-model="korisnik.uloga" value="Dostavljac"  />
+                <span>Dostavljac</span>
+            </label>
+            </p>
+            </form>
           <button @click="registracija" id="registracija">Registracija</button>
           <p>
             <!-- <router-link to="/registracija">Registracija</router-link> -->
@@ -38,10 +53,8 @@
 </template>
 
 <script>
-
-
 export default{
-    name: "RegistrationView",
+      name: "KreirajMenDosView",
     data: function () {
     return {
         korisnik: {
@@ -57,12 +70,6 @@ export default{
     },
     methods: {
         registracija() {
-//               function dateIsValid(date) {
-//   return date instanceof Date && !isNaN(date);
-// }
-// console.log(dateIsValid(new Date('03-36-2022'))); // 👉️ false
-// console.log(dateIsValid(new Date())); // 👉️ true
-// console.log(dateIsValid(new Date('03-24-2022')));
             var prKorisnickoIme = document.getElementById('korisnicko-ime').value;
             var prLozinka = document.getElementById('lozinka').value;
             var prIme = document.getElementById('ime').value;
@@ -82,32 +89,32 @@ export default{
                 alert('Unesite datum rodjenja!')
             }else{
                  console.log(this.korisnik)
-                 fetch("http://localhost:8081/api/registracija", {
-                    method: "POST",
-                    headers: {
-                    Accept: "application/json",
-                    "Content-type": "application/json",
-                    },
-                    body: JSON.stringify(this.korisnik),
-                })
-                    .then((response) => response.json   )
-                    // .then(if(data))
-                    .then((data) => {
-                    console.log("Success");
-                    // if (data =="korisnicko ime nije slobodno"){
-                    //     alert("korisnicko ime nije slobodno!")
-                    // }
-                     this.$router.push("/login");
-                    })
-                    .catch((err) => {
-                    console.log("Error : " + err);
-                    alert(err);
-                    });
+                //  fetch("http://localhost:8081/api/registracija", {
+                //     method: "POST",
+                //     headers: {
+                //     Accept: "application/json",
+                //     "Content-type": "application/json",
+                //     },
+                //     body: JSON.stringify(this.korisnik),
+                // })
+                //     .then((response) => response.json   )
+                //     // .then(if(data))
+                //     .then((data) => {
+                //     console.log("Success");
+                //     // if (data =="korisnicko ime nije slobodno"){
+                //     //     alert("korisnicko ime nije slobodno!")
+                //     // }
+                //      this.$router.push("/login");
+                //     })
+                //     .catch((err) => {
+                //     console.log("Error : " + err);
+                //     alert(err);
+                //     });
                     }
             } 
                  }
         
-    }
     
-
+    
+}
 </script>

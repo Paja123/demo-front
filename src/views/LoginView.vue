@@ -109,6 +109,8 @@ export default{
             this.$router.push("/restorani");
          }else if(this.korisnik.uloga == "Menadzer"){
             this.$router.push("/pregled-porudzbina");
+         }else if(this.korisnik.uloga == "Admin"){
+            this.$router.push("/korisnici");
          }
 
             // console.log(this.$cookies);

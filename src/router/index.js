@@ -6,6 +6,8 @@ import RestoraniView from '../views/RestoraniView.vue'
  import RegistrationView from '../views/RegistrationView.vue'
  import OrderHistoryView from '../views/OrderHistoryView.vue'
  import MenadzerPrPorudzbinaView from '../views/MenadzerPrPorudzbinaView.vue'
+ import AdminKorisniciView from '../views/AdminKorisniciView.vue'
+ import KreirajMenDosView from '../views/AdminKorisniciView.vue'
  
  // import AddEmployeeView from '../views/AddEmployeeView.vue'
 // import EditEmployeeView from '../views/EditEmployeeView.vue'
@@ -45,6 +47,16 @@ const routes = [
     path: '/pregled-porudzbina',
     name: 'pregled-porudzbina',
     component: MenadzerPrPorudzbinaView
+  },
+  {
+    path: '/korisnici',
+    name: 'korisnici',
+    component: AdminKorisniciView
+  },
+  {
+    path: '/kreiraj-korisnika',
+    name: 'kreiraj-korisnika',
+    component: KreirajMenDosView
   },
 
   // {
