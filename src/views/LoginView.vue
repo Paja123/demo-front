@@ -107,7 +107,8 @@ export default{
            console.log(this.korisnik);
            if(this.korisnik.uloga == "Kupac"){
             this.$router.push("/restorani");
-            //POtrebna su 2 klika iz nekog razloga
+         }else if(this.korisnik.uloga == "Menadzer"){
+            this.$router.push("/pregled-porudzbina");
          }
 
             // console.log(this.$cookies);

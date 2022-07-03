@@ -5,6 +5,7 @@ import RestoraniView from '../views/RestoraniView.vue'
  import LoginView from '../views/LoginView.vue'
  import RegistrationView from '../views/RegistrationView.vue'
  import OrderHistoryView from '../views/OrderHistoryView.vue'
+ import MenadzerPrPorudzbinaView from '../views/MenadzerPrPorudzbinaView.vue'
  
  // import AddEmployeeView from '../views/AddEmployeeView.vue'
 // import EditEmployeeView from '../views/EditEmployeeView.vue'
@@ -39,6 +40,11 @@ const routes = [
     path: '/istorija-porudzbina',
     name: 'istorija-porudzbina',
     component: OrderHistoryView
+  },
+  {
+    path: '/pregled-porudzbina',
+    name: 'pregled-porudzbina',
+    component: MenadzerPrPorudzbinaView
   },
 
   // {
