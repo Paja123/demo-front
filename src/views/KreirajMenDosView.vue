@@ -1,6 +1,6 @@
 <template>
-    
-     <div >
+    <!-- <AdminNavBar /> -->
+     <div>
         <label>Korisnicko ime</label>
             <input type="text" v-model="korisnik.korisnickoIme" placeholder="Korisnicko ime" id="korisnicko-ime" />
             <label>Lozinka</label>
@@ -34,25 +34,23 @@
             <form action="#" >
             <p>
             <label>
-                <input  type="radio" v-model="korisnik.uloga" value="Menadzer"  checked />
+                <input  type="radio" v-model="uloga" value="Menadzer"  checked />
                 <span>Menadzer</span>
             </label>
             </p>
             <p>
             <label>
-                <input  type="radio" v-model="korisnik.uloga" value="Dostavljac"  />
+                <input  type="radio" v-model="uloga" value="Dostavljac"  />
                 <span>Dostavljac</span>
             </label>
             </p>
             </form>
-          <button @click="registracija" id="registracija">Registracija</button>
-          <p>
-            <!-- <router-link to="/registracija">Registracija</router-link> -->
-          </p>
-       </div>
+          <button @click="registracija" id="registracija">Kreiraj nalog</button>
+         </div>
 </template>
 
 <script>
+import AdminNavBar from '@/components/AdminNavbar.vue'
 export default{
       name: "KreirajMenDosView",
     data: function () {
@@ -65,6 +63,8 @@ export default{
             prezime:"",
             datumRodjenja: "",
        },
+            uloga:"Menadzer"
+
     };
    
     },
@@ -87,32 +87,59 @@ export default{
                 alert('Unesite prezime!')
             }else if(this.korisnik.datumRodjenja == 0) {
                 alert('Unesite datum rodjenja!')
-            }else{
+            }else if(this.uloga ==="Menadzer"){
                  console.log(this.korisnik)
-                //  fetch("http://localhost:8081/api/registracija", {
-                //     method: "POST",
-                //     headers: {
-                //     Accept: "application/json",
-                //     "Content-type": "application/json",
-                //     },
-                //     body: JSON.stringify(this.korisnik),
-                // })
-                //     .then((response) => response.json   )
-                //     // .then(if(data))
-                //     .then((data) => {
-                //     console.log("Success");
-                //     // if (data =="korisnicko ime nije slobodno"){
-                //     //     alert("korisnicko ime nije slobodno!")
-                //     // }
-                //      this.$router.push("/login");
-                //     })
-                //     .catch((err) => {
-                //     console.log("Error : " + err);
-                //     alert(err);
-                //     });
+                fetch("http://localhost:8081/api/kreiraj-menadzera", {
+                    method: "POST",
+                    credentials: 'include',
+                    headers: {
+                    Accept: "application/json",
+                    "Content-type": "application/json",
+                    },
+                    body: JSON.stringify(this.korisnik),
+                })
+                    .then((response) => response.json)
+                    .then((data) => {
+                    console.log("Success");
+                    // if (data =="korisnicko ime nije slobodno"){
+                    //     alert("korisnicko ime nije slobodno!")
+                    // }
+                     this.$router.push("/korisnici");
+                    })
+                    .catch((err) => {
+                    console.log("Error : " + err);
+                    alert(err);
+                    });
+                    }else if(this.uloga ==="Dostavljac"){}
+                    console.log(this.korisnik)
+                        fetch("http://localhost:8081/api/kreiraj-dostavljaca", {
+                    method: "POST",
+                    credentials: 'include',
+                    headers: {Accept: "application/json",
+                    "Content-type": "application/json",
+                    },
+                    body: JSON.stringify(this.korisnik),
+                })
+                    .then((response) => response.json)
+                    .then((data) => {
+                    console.log("Success");
+                    // if (data =="korisnicko ime nije slobodno"){
+                    //     alert("korisnicko ime nije slobodno!")
+                    // }
+                     this.$router.push("/korisnici");
+                    })
+                    .catch((err) => {
+                    console.log("Error : " + err);
+                    alert(err);
+                    });
+                                      //   this.$router.push("/korisnici");
+
+                 
+
+
                     }
-            } 
-                 }
+                    }
+            
         
     
     

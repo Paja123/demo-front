@@ -7,7 +7,7 @@ import RestoraniView from '../views/RestoraniView.vue'
  import OrderHistoryView from '../views/OrderHistoryView.vue'
  import MenadzerPrPorudzbinaView from '../views/MenadzerPrPorudzbinaView.vue'
  import AdminKorisniciView from '../views/AdminKorisniciView.vue'
- import KreirajMenDosView from '../views/AdminKorisniciView.vue'
+ import KreirajMenDosView from '../views/KreirajMenDosView.vue'
  
  // import AddEmployeeView from '../views/AddEmployeeView.vue'
 // import EditEmployeeView from '../views/EditEmployeeView.vue'

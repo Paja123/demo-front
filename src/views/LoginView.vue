@@ -110,7 +110,7 @@ export default{
          }else if(this.korisnik.uloga == "Menadzer"){
             this.$router.push("/pregled-porudzbina");
          }else if(this.korisnik.uloga == "Admin"){
-            this.$router.push("/korisnici");
+            this.$router.push("/kreiraj-korisnika");
          }
 
             // console.log(this.$cookies);
