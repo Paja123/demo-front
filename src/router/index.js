@@ -8,9 +8,9 @@ import RestoraniView from '../views/RestoraniView.vue'
  import MenadzerPrPorudzbinaView from '../views/MenadzerPrPorudzbinaView.vue'
  import AdminKorisniciView from '../views/AdminKorisniciView.vue'
  import KreirajMenDosView from '../views/KreirajMenDosView.vue'
- 
- // import AddEmployeeView from '../views/AddEmployeeView.vue'
-// import EditEmployeeView from '../views/EditEmployeeView.vue'
+ import CekaDostavljacaView from '../views/CekaDostavljacaView.vue'
+ import DostavljacProfilView from '../views/DostavljacProfilView.vue'
+
 
 const routes = [
   {
@@ -57,18 +57,16 @@ const routes = [
     path: '/kreiraj-korisnika',
     name: 'kreiraj-korisnika',
     component: KreirajMenDosView
+  },{
+    path: '/ceka-dostavljaca',
+    name: 'ceka-dostavljaca',
+    component: CekaDostavljacaView
+  },{
+    path: '/dostavljac-profil',
+    name: 'dostavljac-profil',
+    component: DostavljacProfilView
   },
 
-  // {
-  //   path: '/add-employee',
-  //   name: 'add-employee',
-  //   component: AddEmployeeView
-  // },
-  // {
-  //   path: '/edit-employee',
-  //   name: 'edit-employee',
-  //   component: EditEmployeeView
-  // }
 ]
 
 const router = createRouter({

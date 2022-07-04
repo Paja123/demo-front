@@ -1,5 +1,5 @@
 <template>
-<NavBar />
+  <NavBar />
   <div id="allRestorani">
     <h1>Restorani</h1>
     <!-- <button v-on:click="addEmployee">Add new employee</button> -->
@@ -31,11 +31,11 @@
 </template>
 
 <script>
-import NavBar from "@/components/Navbar.vue" ;
 import RestoraniComp from "../components/RestoraniComp.vue";
+import NavBar from "@/components/Navbar.vue"
 export default {
   name: "RestoraniComp",
-  components: { RestoraniComp, NavBar },
+  components: { RestoraniComp, NavBar},
   data: function () {
     return {
       restorani: [],

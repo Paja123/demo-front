@@ -1,5 +1,5 @@
 <template>
-  <Navbar />
+  <NavBar />
   <div>
     <h1>{{restoran.naziv}}</h1>
     <h2>{{restoran.tip}}</h2>
@@ -64,9 +64,9 @@
         
 </template>
 <script>
-
+import NavBar from '@/components/Navbar.vue'
 import M from 'materialize-css'
-import NavBar from "@/components/Navbar.vue" ;
+
 export default {
     name: 'RestoranView',
     // props: ['inventory', 'addToCart'],
@@ -83,7 +83,7 @@ export default {
             }
         }
       },
-      components:{NavBar},
+    components:{NavBar},
     mounted: function() {
         /*axios
             .get("http://localhost:8081/api/employees/" + this.$route.query.id)
@@ -128,6 +128,5 @@ export default {
     }
 }
 </script>
-<style
->
+<style>
 </style>

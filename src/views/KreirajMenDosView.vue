@@ -1,5 +1,5 @@
 <template>
-    <!-- <AdminNavBar /> -->
+    <AdminNavBar /> 
      <div>
         <label>Korisnicko ime</label>
             <input type="text" v-model="korisnik.korisnickoIme" placeholder="Korisnicko ime" id="korisnicko-ime" />
@@ -68,6 +68,7 @@ export default{
     };
    
     },
+    components:{AdminNavBar},
     methods: {
         registracija() {
             var prKorisnickoIme = document.getElementById('korisnicko-ime').value;

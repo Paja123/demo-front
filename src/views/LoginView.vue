@@ -111,6 +111,8 @@ export default{
             this.$router.push("/pregled-porudzbina");
          }else if(this.korisnik.uloga == "Admin"){
             this.$router.push("/kreiraj-korisnika");
+         }else if(this.korisnik.uloga == "Dostavljac"){
+            this.$router.push("/dostavljac-profil");
          }
 
             // console.log(this.$cookies);
